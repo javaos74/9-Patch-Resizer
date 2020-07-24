@@ -18,11 +18,8 @@ package net.redwarp.tool.resizer;
 import net.redwarp.tool.resizer.FileProcessor.FileProcessorStatusListener;
 import net.redwarp.tool.resizer.misc.Configuration;
 import net.redwarp.tool.resizer.misc.Localization;
-import net.redwarp.tool.resizer.views.MainWindow;
 
 import java.util.ArrayList;
-
-import javax.swing.*;
 
 public class Main {
 
@@ -72,22 +69,6 @@ public class Main {
       for (FileProcessor p : processors) {
         p.process();
       }
-    } else {
-
-      try {
-        UIManager.setLookAndFeel(UIManager
-                                     .getSystemLookAndFeelClassName());
-      } catch (ClassNotFoundException e) {
-        e.printStackTrace();
-      } catch (InstantiationException e) {
-        e.printStackTrace();
-      } catch (IllegalAccessException e) {
-        e.printStackTrace();
-      } catch (UnsupportedLookAndFeelException e) {
-        e.printStackTrace();
-      }
-
-      new MainWindow().setVisible(true);
     }
   }
 }

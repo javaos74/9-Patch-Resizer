@@ -4,7 +4,7 @@
     {
       "scale": 4,
       "name": "xxxhdpi",
-      "active": false
+      "active": true
     },
     {
       "scale": 3,
@@ -19,7 +19,7 @@
     {
       "scale": 1.5,
       "name": "hdpi",
-      "active": true
+      "active": false
     },
     {
       "scale": 1.33,
@@ -29,7 +29,7 @@
     {
       "scale": 1,
       "name": "mdpi",
-      "active": true
+      "active": false
     },
     {
       "scale": 0.75,

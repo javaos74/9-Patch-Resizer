@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 public class Configuration {
 
   private static ResourceBundle bundle = ResourceBundle.getBundle(
-      "misc.configuration", Locale.FRANCE);
+      "misc.configuration", Locale.KOREA);
   private static Settings settings = null;
 
   public static String getVersion() {
