@@ -31,7 +31,6 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class ImageScaler extends SwingWorker<Void, Operation> {
@@ -88,6 +87,8 @@ public class ImageScaler extends SwingWorker<Void, Operation> {
           .getSupportedScreenDensity();
 
       File parent = this.inputFile.getParentFile();
+      String resFolderName = parent.getName(); //
+      parent = parent.getParentFile(); // 1 level-up folder
       for (ScreenDensity density : densityList) {
         if (!density.isActive()) {
           continue;
@@ -95,8 +96,8 @@ public class ImageScaler extends SwingWorker<Void, Operation> {
         File outputFolder;
 
         synchronized (folderLock) {
-          outputFolder = new File(parent, "drawable-"
-                                          + density.getName());
+          String tname = resFolderName.replace( "xxhdpi", density.getName());
+          outputFolder = new File(parent, tname);
           if (!outputFolder.exists()) {
             outputFolder.mkdir();
           }
@@ -144,8 +145,7 @@ public class ImageScaler extends SwingWorker<Void, Operation> {
           int h = trimedImage.getHeight();
 
           try {
-            borderImage = this.generateBordersImage(inputImage, w,
-                                                    h);
+            borderImage = this.generateBordersImage(inputImage, w, h);
           } catch (Wrong9PatchException e) {
             this.operation.setStatus(OperationStatus.ERROR,
                                      Localization.get("error_wrong_9p"));
